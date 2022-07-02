@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class Asgn6 {
+	
+	/* Desmond Padilla -- CMIS 141/6382 -- MAR 2 2022
+	 * This program prompts the user for amount of teams, team names, & team scores. Then outputs
+	 * the team names with their scores and tells the user who had the highest and lowest scores
+	 * */
+	
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int amountOfTeams;
+		
+//ask for amount of teams	
+		System.out.print("How many teams do you want to enter: ");
+		amountOfTeams = scan.nextInt();
+				
+	
+      String[] teamNames = new String[amountOfTeams];
+	  int[] teamScores = new int[amountOfTeams];
+      
+//ask for team names
+      for(int i = 0; i < amountOfTeams; i++){
+		System.out.print("Enter team names: ");
+		String inputTeamName = scan.next();
+		teamNames[i] = inputTeamName;
+        
+//ask for scores
+		System.out.print("Enter team scores (0-1000):");
+		int inputTeamScore = scan.nextInt();
+        teamScores[i] = inputTeamScore;
+      }
+      
+      System.out.println("Team results: ");
+      for(int i = 0; i < amountOfTeams; i++){
+        System.out.println(teamNames[i] + " " + teamScores[i]);
+      }
+      
+      
+//call methods for mins and maxs  
+	int maxIndex = highestTeamScore(teamScores, amountOfTeams);
+	int minIndex = lowestTeamScore(teamScores, amountOfTeams);
+
+	int maxScore = teamScores[maxIndex];
+    int minScore = teamScores[minIndex];
+
+    String maxTeam = teamNames[maxIndex];
+	String minTeam = teamNames[minIndex];
+
+	System.out.println("Team '" + maxTeam + "' had the highest score with " + maxScore + " points");
+	System.out.println("Team '" + minTeam + "' had the lowest score with " + minScore + " points");
+	
+      
+		scan.close(); //closes scanner
+      
+	}//closes main method
+		
+		
+	public static int highestTeamScore(int max[], int len) {
+      int maxScore = max[0]; 
+      int maxIndex = 0;
+		for (int i = 1; i < max.length; i++) {
+			if (max[i] > maxScore){
+				maxScore = max[i];
+          		maxIndex = i;
+            }
+		}
+      return maxIndex;
+	}//closes highesetTeamScore method
+	
+	
+	public static int lowestTeamScore(int min[], int len) {
+          int minScore = min[0]; 
+          int minIndex = 0;
+			for (int i = 1; i < min.length; i++) {
+				if (min[i] < minScore){
+					minScore = min[i];
+					minIndex = i;
+                }
+			}
+          return minIndex;
+	} //closes lowestTeamScore method
+	
+}
