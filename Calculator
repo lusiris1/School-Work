@@ -6,15 +6,6 @@ import java.util.Scanner;
 public class Asg2 {
 
 	public static void main(String[] args) {
-		
-		/*(1) Prompts user to enter two numbers between 200 and 1000 and a symbol for operation 
-		 * 	  such as ‘+’, ‘-‘, ‘*’, and ‘/’ (use Scanner for input).  
-		 * 
-		 *(2) Code uses a switch or nested if statements to perform the operation on the two numbers 
-		 * 
-		 *(3) If the provided symbol is valid, displays the input data along with the result of the 
-		 * 	   calculation to the console. Otherwise displays error message  
-		 */
 	
 	//Initiate scanner
 	Scanner scan = new Scanner(System.in);
