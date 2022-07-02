@@ -1,0 +1,103 @@
+//Desmond Padilla - 3 FEB 2022
+//Program purpose: Add, subract, divide, multiply user input numbers between 200 & 1000.
+
+import java.util.Scanner;
+
+public class Asg2 {
+
+	public static void main(String[] args) {
+		
+		/*(1) Prompts user to enter two numbers between 200 and 1000 and a symbol for operation 
+		 * 	  such as ‘+’, ‘-‘, ‘*’, and ‘/’ (use Scanner for input).  
+		 * 
+		 *(2) Code uses a switch or nested if statements to perform the operation on the two numbers 
+		 * 
+		 *(3) If the provided symbol is valid, displays the input data along with the result of the 
+		 * 	   calculation to the console. Otherwise displays error message  
+		 */
+	
+	//Initiate scanner
+	Scanner scan = new Scanner(System.in);
+	double  userNumb2 = 0, userNumb1 = 0;
+	
+	
+	//prompt user for two numbers between 200 & 1000. If user does not enter number return error
+	System.out.print("Enter two numbers between 200 & 1000: ");
+      if (!scan.hasNextDouble()) {
+		String word = scan.next();
+		System.err.println(word + " is not a number");
+	}
+      else{
+         userNumb1 = scan.nextDouble(); 
+      }
+	
+	 if (!scan.hasNextDouble()) {
+		String word = scan.next();
+		System.err.println(word + " is not a number");
+	}
+	 else{
+         userNumb2 = scan.nextDouble();
+      }
+		
+	
+	//if numb1 is outside range
+	if (userNumb1 < 200) {
+		System.out.print("One number out of range");
+		return;
+		}
+	else if (userNumb1 > 1000) {
+		System.out.print("One number out of range");
+	return;
+	}
+      
+	
+      //if numb2 is outside range
+	if (userNumb2 < 200) {
+		System.out.print("One number out of range");
+		return;
+		}
+	else if (userNumb2 > 1000) {
+		System.out.print("One number out of range");
+	return;
+	}
+       
+	
+	// clears the scanner 
+    scan.nextLine(); 
+	
+	
+    //Prompt user for operation symbol
+	System.out.print("Enter operation symbol (+, -, *, or /): ");
+	String operationSymbol = scan.nextLine();
+	char letter = operationSymbol.charAt(0);
+	
+	double result = 0;
+	//if user enters incorrect operation return error
+	switch(letter){ // character use for the operator
+          case '+':
+        result= userNumb1 + userNumb2;// add numbers
+        break;
+          case '-':
+        result= userNumb1 - userNumb2; // Subtract
+        break;
+          case '*':
+        result= userNumb1 * userNumb2; // multiply
+        break;
+          case '/':
+        result= userNumb1 / userNumb2; // division
+        break;
+      default:
+        System.out.print("Invalid symbol ");
+        return;
+    }
+      
+	//Result
+	System.out.print("Result: " + result);
+	
+	
+	//Close scan
+	scan.close();
+
+	
+	}
+}
